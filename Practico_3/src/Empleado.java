@@ -15,19 +15,21 @@ public class Empleado {
         this.puesto = puesto;
         this.salario = salario;
         totalEmpleados++;
+        contadorID++;
     }
 
     public Empleado(String nombre, String puesto) {
         this.empledadoID = ++contadorID;
         this.nombre = nombre;
         this.puesto = puesto;
-        this.salario = 3000;
+        this.salario = 3000.0;
         totalEmpleados++;
+        contadorID++;
 
     }
 
     @Override
-    public java.lang.String toString() {
+    public String toString() {
         return "Empleado{" +
                 "empledadoID=" + empledadoID +
                 ", nombre='" + nombre + '\'' +
@@ -35,14 +37,17 @@ public class Empleado {
                 ", salario=" + salario +
                 '}';
     }
-    public void actualizarSalario(Double aumento){
+
+    public void actualizarSalario(int aumento){
             salario += aumento;
+            System.out.println("Epleado : "+  nombre );
             System.out.println("Salario actualizado: " + salario);
     }
     public void actualizarSalario(){
-        Double aumento = 500;
+        int aumento = 500;
         salario += aumento;
-        System.out.println("Salario actualizado: " + salario);
+        System.out.println("Epleado : "+  nombre );
+        System.out.println("Salario actualizado: " + salario+ "(valor por defecto)");
     }
     public static int mostrarTotalEmpleados(){
         return totalEmpleados;
@@ -50,6 +55,30 @@ public class Empleado {
 
 
     public static void main(String[] args) {
+
+        Empleado empleado1 = new Empleado(1,"Santiago","Administrador",3000.0);
+        Empleado empleado2= new Empleado("Pedro","Encargado");
+        Empleado empleado3 = new Empleado(3,"Ricardo","vendedor",3500.0);
+
+        System.out.println(empleado1+ "\n");
+        System.out.println(empleado2+ "\n");
+        System.out.println(empleado3+ "\n");
+
+
+        empleado1.actualizarSalario(700);
+        System.out.println("\n");
+        empleado2.actualizarSalario();
+        System.out.println("\n");
+
+        int totalEmpleados = Empleado.mostrarTotalEmpleados();
+        System.out.println("Total empleados: " + totalEmpleados);
+
+        System.out.println(empleado1+ "\n");
+        System.out.println(empleado2+ "\n");
+        System.out.println(empleado3+ "\n");
+
+
+
 
     }
 }
