@@ -4,8 +4,7 @@ public class Empleado {
     private String nombre;
     private String puesto;
     private Double salario;
-    private static int totalEmpleados;
-    private static int contadorID;
+    private static int totalEmpleados = 0;
 
 
     public Empleado(int empledadoID, String nombre, String puesto, Double salario) {
@@ -14,11 +13,10 @@ public class Empleado {
         this.nombre = nombre;
         this.puesto = puesto;
         this.salario = salario;
-        totalEmpleados++;
     }
 
     public Empleado(String nombre, String puesto) {
-        this.empledadoID = ++contadorID;
+        this.empledadoID = totalEmpleados;
         this.nombre = nombre;
         this.puesto = puesto;
         this.salario = 3000.0;
@@ -37,47 +35,21 @@ public class Empleado {
                 '}';
     }
 
-    public void actualizarSalario(int aumento){
-            salario += aumento;
-            System.out.println("Epleado : "+  nombre );
-            System.out.println("Salario actualizado: " + salario);
+    public void actualizarSalario(int aumento) {
+        salario += aumento;
+        System.out.println("Epleado : " + nombre);
+        System.out.println("Salario actualizado: " + salario);
     }
-    public void actualizarSalario(){
+
+    public void actualizarSalario() {
         int porcentajeAumento = 15;
         salario += (1 + porcentajeAumento / 100.0);
-        System.out.println("Epleado : "+  nombre );
-        System.out.println("Salario aumentado un 15: " + salario+ " (valor por defecto)");
+        System.out.println("Epleado : " + nombre);
+        System.out.println("Salario aumentado un 15: " + salario + " (valor por defecto)");
     }
-    public static int mostrarTotalEmpleados(){
+
+    public static int mostrarTotalEmpleados() {
         return totalEmpleados;
     }
-
-
-    public static void main(String[] args) {
-
-        Empleado empleado1 = new Empleado(1,"Santiago","Administrador",3000.0);
-        Empleado empleado2= new Empleado("Pedro","Encargado");
-        Empleado empleado3 = new Empleado(3,"Ricardo","vendedor",3500.0);
-
-        System.out.println(empleado1+ "\n");
-        System.out.println(empleado2+ "\n");
-        System.out.println(empleado3+ "\n");
-
-
-        empleado1.actualizarSalario(700);
-        System.out.println("\n");
-        empleado2.actualizarSalario();
-        System.out.println("\n");
-
-        int totalEmpleados = Empleado.mostrarTotalEmpleados();
-        System.out.println("Total empleados: " + totalEmpleados);
-
-        System.out.println(empleado1+ "\n");
-        System.out.println(empleado2+ "\n");
-        System.out.println(empleado3+ "\n");
-
-
-
-
-    }
 }
+
