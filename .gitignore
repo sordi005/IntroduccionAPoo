@@ -1,31 +1,19 @@
-# Archivos compilados
+# Archivos compilados de Java
 *.class
-*.jar
-*.war
-*.ear
 
-# Directorios de construcción
-target/
-build/
-out/
-bin/
-
-# IDE específico
+# Archivos de IDE
 .idea/
 *.iml
-*.ipr
-*.iws
 .classpath
 .project
 .settings/
-.vscode/
+bin/
 
 # Archivos del sistema
 .DS_Store
 Thumbs.db
 
-# Archivos de logs
-*.log
-
-# Archivos de dependencias Maven
-dependency-reduced-pom.xml
+# Directorios de construcción
+target/
+build/
+out/
